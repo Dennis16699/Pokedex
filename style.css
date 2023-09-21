@@ -57,7 +57,6 @@ header {
     margin-top: 0px;
     margin-left: 15px;
     font-size: 18px;
-
 }
 
 #pokemonImages {
@@ -68,7 +67,6 @@ header {
 }
 
 .loadbutton {
-    
     background-color: rgba(20, 19, 19, 0.8);
     display: flex;
     justify-content: space-evenly;
@@ -398,7 +396,6 @@ header {
 
     .btn-search:focus~.input-search {
         width: 230px;
-        
     }
 
     .input-search:focus {
@@ -447,7 +444,6 @@ header {
 @media(max-width: 330px){
     .btn-search:focus~.input-search {
         width: 200px;
-        
     }
 
     .input-search:focus {

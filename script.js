@@ -100,7 +100,6 @@ function showFullCard() {
 function closePokemonDetails() {
     const pokemonDetailsDiv = document.getElementById('pokemonDetails');
     pokemonDetailsDiv.style.display = 'none';
-    
 }
 
 function loadMorePokemon() {
@@ -174,8 +173,6 @@ function generaterenderpokemonDetailsDiv(selectedPokemon){
                     <div class="moves" style="color: black; text-transform: capitalize;">${showPokemonDetailsMoves(selectedPokemon.moves)}</div>
                 </div>
             </div>
-            
-
                 <button class="closeButton" onclick="closePokemonDetails()">Close</button>
         </div>
     </div>
