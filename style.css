@@ -17,7 +17,7 @@ header {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    background-color: rgba(20, 19, 19, 0.8);
+    background-color: rgba(0, 0, 0, 0.6);
     height: 100%;
 }
 
@@ -36,6 +36,7 @@ header {
     text-transform: capitalize;
     color: white;
     cursor: pointer;
+    transition: 0.3s ease-in-out;
 }
 
 .PokedexInfo:hover{
@@ -67,24 +68,25 @@ header {
 }
 
 .loadbutton {
-    background-color: rgba(20, 19, 19, 0.8);
+    background-color: rgba(0, 0, 0, 0.6);
     display: flex;
     justify-content: space-evenly;
 }
 
 .loadbutton a {
     text-decoration: none;
-    color: black;
 }
 
 .button {
     padding: 20px 50px;
     margin-top: 140px;
     margin-bottom: 179px;
-    background-color: rgba(247, 245, 245, 0.517);
+    background-color: rgba(185, 179, 179, 0.517);
     border: none;
     border-radius: 15px;
     font-weight: bold;
+    color: white;
+    font-size: 24px;
 }
 
 .button:hover {
@@ -225,7 +227,7 @@ header {
 }
 
 .closeButton:hover {
-    transform: scale(1.3);
+    transform: scale(1.2);
 }
 
 .mediaPokeImg{
@@ -449,5 +451,4 @@ header {
     .input-search:focus {
         width: 200px;
     }
-
 }

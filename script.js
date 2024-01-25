@@ -3,6 +3,11 @@ let currentOffset = 0;
 let limit = 30;
 
 
+/**
+ * Function to render a batch of Pokémon and display them on the page.
+ * @async
+ * @function renderAllPokemon
+ */
 async function renderAllPokemon() {
     let pokemonContainer = document.getElementById('Pokedex');
 
@@ -19,9 +24,13 @@ async function renderAllPokemon() {
     }
     // Aktualisiere den aktuellen Offset für das nächste Laden von Pokémon
     currentOffset += limit;
+
 }
 
-
+/**
+ * Function to show the details of a specific Pokémon.
+ * @param {number} pokemonId - The ID of the Pokémon to display details for.
+ */
 function showPokemonDetails(pokemonId) {
     // Finde das ausgewählte Pokémon anhand seiner ID
     let selectedPokemon = currentPokemon.find(pokemon => pokemon.id === pokemonId);
@@ -37,26 +46,41 @@ function showPokemonDetails(pokemonId) {
     }
     renderAbilities();
     renderChart(selectedPokemon);
+    turnOn();
 }
 
+/**
+ * Function to render the abilities section for a Pokémon.
+ */
 function renderAbilities() {
     document.getElementById('abilitiesInfo').style.display = 'block';
     document.getElementById('baseStatsInfo').style.display = 'none';
     document.getElementById('movesInfo').style.display = 'none';
 }
 
+/**
+ * Function to render the base stats section for a Pokémon.
+ */
 function renderBaseStats() {
     document.getElementById('abilitiesInfo').style.display = 'none';
     document.getElementById('baseStatsInfo').style.display = 'block';
     document.getElementById('movesInfo').style.display = 'none';
 }
 
+/**
+ * Function to render the moves section for a Pokémon.
+ */
 function renderMoves() {
     document.getElementById('abilitiesInfo').style.display = 'none';
     document.getElementById('baseStatsInfo').style.display = 'none';
     document.getElementById('movesInfo').style.display = 'block';
 }
 
+/**
+ * Function to generate HTML for displaying Pokémon abilities.
+ * @param {Object[]} abilities - An array of abilities for a Pokémon.
+ * @returns {string} - HTML representation of Pokémon abilities.
+ */
 function showPokemonDetailsAbilities(abilities) {
     let abilitiesHTML = '';
     for (let i = 0; i < abilities.length; i++) {
@@ -68,6 +92,11 @@ function showPokemonDetailsAbilities(abilities) {
     return abilitiesHTML;
 }
 
+/**
+ * Function to generate HTML for displaying Pokémon types.
+ * @param {Object[]} types - An array of types for a Pokémon.
+ * @returns {string} - HTML representation of Pokémon types.
+ */
 function showPokemonDetailsTypes(types) {
     let typesHTML = '';
     for (let i = 0; i < types.length; i++) {
@@ -79,6 +108,11 @@ function showPokemonDetailsTypes(types) {
     return typesHTML;
 }
 
+/**
+ * Function to generate HTML for displaying Pokémon moves.
+ * @param {Object[]} moves - An array of moves for a Pokémon.
+ * @returns {string} - HTML representation of Pokémon moves.
+ */
 function showPokemonDetailsMoves(moves) {
     let movesHTML = '';
     for (let i = 0; i < moves.length; i++) {
@@ -91,21 +125,32 @@ function showPokemonDetailsMoves(moves) {
 }
 
 
+/**
+ * Function to display the full Pokémon card.
+ */
 function showFullCard() {
     let FullCard = document.getElementById('pokemonDetails');
     FullCard.style.display = 'flex';
 }
 
-
+/**
+ * Function to close the Pokémon details section.
+ */
 function closePokemonDetails() {
     const pokemonDetailsDiv = document.getElementById('pokemonDetails');
     pokemonDetailsDiv.style.display = 'none';
 }
 
+/**
+ * Function to load more Pokémon when a "Load More" button is clicked.
+ */
 function loadMorePokemon() {
     renderAllPokemon();
 }
 
+/**
+ * Function to filter Pokémon based on a search input.
+ */
 function filternPokenmon() {
     let searchInput = document.getElementById('searchInput').value.toLowerCase();
 
@@ -118,6 +163,10 @@ function filternPokenmon() {
     searchPokenmon(filteredPokemon);
 }
 
+/**
+ * Function to display Pokémon based on filtering results.
+ * @param {Object[]} filteredPokemon - An array of Pokémon to display after filtering.
+ */
 function searchPokenmon(filteredPokemon) {
     let pokemonContainer = document.getElementById('Pokedex');
     pokemonContainer.innerHTML = '';
@@ -129,17 +178,39 @@ function searchPokenmon(filteredPokemon) {
     }
 }
 
-function generaterenderpokemonDetailsDiv(selectedPokemon){
+/**
+ * Function to display the Pokémon details section.
+ */
+function turnOn() {
+    document.getElementById("pokemonDetails").style.display = "flex";
+}
+
+/**
+ * Function to hide the Pokémon details section.
+ */
+function turnOff() {
+    document.getElementById("pokemonDetails").style.display = "none";
+}
+
+/**
+ * Function to prevent closing the Pokémon details section when an event is triggered.
+ * @param {Event} event - The event object to prevent closing for.
+ */
+function notClose(event) {
+    event.stopPropagation();
+}
+
+function generaterenderpokemonDetailsDiv(selectedPokemon) {
     return `
     <div class="pokedatacard">
-        <div class="infos">
+        <div class="infos" onclick="notClose(event)">
             <span class="pokeID">#${selectedPokemon.id}</span>
             <h1 class="pokeName">${selectedPokemon.name}</h1>
             <div class="mediaPokeImg">
                 <img  src="${selectedPokemon.sprites.other['official-artwork'].front_default}">
             </div>
         </div>
-        <div class="allinformation">
+        <div class="allinformation" onclick="notClose(event)">
             <div class="navbarinfo">
                 <a class="navbar" onclick="renderAbilities()">About</a>
                 <a class="navbar" onclick="renderBaseStats()">Base Stats</a>
@@ -188,4 +259,3 @@ function generaterenderAllPokemon(pokemon) {
         </div>
     `
 }
-

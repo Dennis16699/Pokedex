@@ -22,14 +22,11 @@
 </head>
 
 <body onload="renderAllPokemon()">
-
     <div id="top"></div>
-
     <header>
         <div>
             <img class="mediaImg" src="img/Pokédex_logo.png" alt="">
         </div>
-
         <div class="search-box">
             <button class="btn-search"><i class="fas fa-search"></i><img class="inputImg"
                     src="img/search-13-32.png"></button>
@@ -46,7 +43,7 @@
         <a class="button" href="#top">Go to Top</a>
     </div>
 
-    <div class="image-bg" id="pokemonDetails" style="display: none;">
+    <div class="image-bg" id="pokemonDetails" style="display: none;" onclick="turnOff()">
     </div>
 </body>
 
