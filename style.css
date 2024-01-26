@@ -1,4 +1,27 @@
 /* PokeDex */
+*{
+    ::-webkit-scrollbar {
+        width: 12px;
+        /* Breite des Scrollbalkens */
+      }
+    
+      /* Ändere die Hintergrundfarbe des Scrollbalkens */
+      ::-webkit-scrollbar-track {
+        background-color: #f1f1f1;
+      }
+    
+      /* Ändere die Farbe des Scrollbalken-Griffs */
+      ::-webkit-scrollbar-thumb {
+        background-color: #2D2E99;
+        border-radius: 10px;
+      }
+    
+      /* Ändere die Farbe des Scrollbalken-Griffs, wenn er aktiv ist (während des Scrollens) */
+      ::-webkit-scrollbar-thumb:hover {
+        background-color: #2D2E99;
+      }
+}
+
 body{
     margin: 0;
 }
